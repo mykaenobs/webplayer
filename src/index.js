@@ -1,4 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from './App';
 
-ReactDOM.render(<h1>Hello world! Ok continue Starting with heroku why na</h1>, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"))
