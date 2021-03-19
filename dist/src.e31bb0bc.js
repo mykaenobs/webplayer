@@ -29846,6 +29846,8 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"./assets\\imgs\\bg\\bg-2x.jpg":[["bg-2x.b686a591.jpg","assets/imgs/bg/bg-2x.jpg"],"assets/imgs/bg/bg-2x.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/imgs/logo/logo.svg":[function(require,module,exports) {
 module.exports = "/logo.aa24ed79.svg";
+},{}],"assets/imgs/icons/light.svg":[function(require,module,exports) {
+module.exports = "/light.89e611e2.svg";
 },{}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -29860,10 +29862,24 @@ require("./App.scss");
 
 var _logo = _interopRequireDefault(require("./assets/imgs/logo/logo.svg"));
 
+var _light = _interopRequireDefault(require("./assets/imgs/icons/light.svg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("header", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "auro"
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "auro__effect auro__effect--dark-blue"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "auro__effect auro__effect--green"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "auro__effect auro__effect--blue"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "auro__effect auro__effect--purple-pink"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "auro__effect auro__effect--purple"
+  })), /*#__PURE__*/_react.default.createElement("header", {
     className: "header",
     id: "header"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29885,36 +29901,37 @@ var App = function App() {
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "",
     className: "nav__link"
-  }, "Omnis!")))), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _light.default,
+    alt: "Light"
+  }))))), /*#__PURE__*/_react.default.createElement("div", {
     className: "hero__split"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "hero__text text"
   }, /*#__PURE__*/_react.default.createElement("h1", {
     className: "text__headline"
-  }, "Lorem, ipsum dolor."), /*#__PURE__*/_react.default.createElement("p", {
+  }, "Get Real Music"), /*#__PURE__*/_react.default.createElement("p", {
     className: "text__desc"
-  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusantium corporis minima aspernatur distinctio iure doloremque, animi asperiores accusamus illo?"), /*#__PURE__*/_react.default.createElement("a", {
+  }, "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita"), /*#__PURE__*/_react.default.createElement("a", {
     href: "",
     className: "hero__button hero__button--purple"
-  }, "Lorem."), /*#__PURE__*/_react.default.createElement("a", {
+  }, "Sign Up"), /*#__PURE__*/_react.default.createElement("a", {
     href: "",
     className: "hero__button hero__button--outline"
-  }, "Laudantium?")), /*#__PURE__*/_react.default.createElement("div", {
+  }, "Browse Songs")), /*#__PURE__*/_react.default.createElement("div", {
     className: "hero__img"
   })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "footer"
+    className: "hero__footer"
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#"
-  }, "Lorem."), /*#__PURE__*/_react.default.createElement("a", {
+  }, "Terms and Conditions"), /*#__PURE__*/_react.default.createElement("a", {
     href: "#"
-  }, "Numquam?"), /*#__PURE__*/_react.default.createElement("a", {
-    href: "#"
-  }, "Alias!"))))));
+  }, "Help?"))))));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./assets/imgs/logo/logo.svg":"assets/imgs/logo/logo.svg"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./assets/imgs/logo/logo.svg":"assets/imgs/logo/logo.svg","./assets/imgs/icons/light.svg":"assets/imgs/icons/light.svg"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29954,7 +29971,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49924" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50430" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

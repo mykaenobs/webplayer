@@ -1,10 +1,18 @@
 import React from 'react';
 import './App.scss';
 import logo from './assets/imgs/logo/logo.svg';
+import light from './assets/imgs/icons/light.svg';
 
 const App = () => {
     return (
         <>
+            <div className="auro">
+                <span className="auro__effect auro__effect--dark-blue"></span>
+                <span className="auro__effect auro__effect--green"></span>
+                <span className="auro__effect auro__effect--blue"></span>
+                <span className="auro__effect auro__effect--purple-pink"></span>
+                <span className="auro__effect auro__effect--purple"></span>
+            </div>
             <header className="header" id="header">
                 <div className="hero center">
                     <div className="hero__container">
@@ -14,23 +22,23 @@ const App = () => {
                                 <h1>indWorship</h1>
                             </div>
                             <ul className="nav__links">
-                                <li className="nav__list"><a href="" className="nav__link">Omnis!</a></li>
+                                <li className="nav__list"><a href="" className="nav__link"><img src={light} alt="Light" /></a></li>
                             </ul>
                         </nav>
 
                         <div className="hero__split">
                            <div className="hero__text text">
-                               <h1 className="text__headline">Lorem, ipsum dolor.</h1>
-                               <p className="text__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusantium corporis minima aspernatur distinctio iure doloremque, animi asperiores accusamus illo?</p>
-                               <a href="" className="hero__button hero__button--purple">Lorem.</a><a href="" className="hero__button hero__button--outline">Laudantium?</a>
+                               <h1 className="text__headline">Get Real Music</h1>
+                               <p className="text__desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita</p>
+                               <a href="" className="hero__button hero__button--purple">Sign Up</a>
+                               <a href="" className="hero__button hero__button--outline">Browse Songs</a>
                            </div>
                            <div className="hero__img"></div>
                         </div>
 
-                        <div className="footer">
-                            <a href="#">Lorem.</a>
-                            <a href="#">Numquam?</a>
-                            <a href="#">Alias!</a>
+                        <div className="hero__footer">
+                            <a href="#">Terms and Conditions</a>
+                            <a href="#">Help?</a>
                         </div>
                     </div>
                 </div>
