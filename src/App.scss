@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+}
+
+body {
+    background-color: #000B43;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(.8rem, 2vw, .9rem);
+}
+
+.center {
+    width: 100%;
+    max-width: 1245px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 100vh;
+
+    @media screen and (max-width: 1259px) {
+        padding: 0 2em;
+        
+    }
+}
+
+.auro {
+    position: absolute;
+    width: 100%;
+    height: 100%;  
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &__effect {
+        display: block;
+        border-radius: 50%;
+        height: 300px;
+        width: 300px;
+        position: absolute;
+
+        &--blue {
+            background-color: #0099FF;
+            filter: blur(50px);
+            bottom: -150px;
+            right: -120px;
+        }
+    
+        &--purple-pink {
+            background-color: #FF00E6;
+            filter: blur(50px);
+            top: -50px;
+            right: 150px;
+            width: 150px;
+            height: 150px;
+        }
+    
+        &--green {
+            background-color: #00FF6F;
+            filter: blur(50px);
+            bottom: -100px;
+            right: 150px;
+            width: 150px;
+            height: 150px;
+        }
+    
+        &--purple {
+            background-color: #AB00FF;
+            filter: blur(50px);
+            top: -170px;
+            right: -100px;
+        }
+    
+        &--dark-blue {
+            background-color: #001064;
+            filter: blur(50px);
+            bottom: -150px;
+            left: -150px;
+        }
+    }
+
+
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+
+    &__logo {
+        display: inline-flex;
+        align-items: baseline;
+        gap: .13em;
+
+        h1 {
+            color: #fff;
+        }
+
+        img {
+            width: 24px;
+        }
+    }
+
+    &__links {
+        padding: 0;
+    }
+
+    &__link {
+        color: #fff;
+        text-decoration: none;
+
+        img {
+            width: 40px;
+        }
+    }
+
+
+}
+
+.hero {
+    height: 100%;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: inherit;
+    }
+
+    &__split {
+        & > div {
+            flex: 1
+        }
+    }
+
+    &__text {
+        color: #fff;
+    }
+
+    .text {
+        &__headline {
+            font-size: 76 / 16 + rem;
+            font-weight: 300;
+            text-shadow: 4px -5px 0 #000E53;
+        }
+
+        &__desc {            
+            width: 100%;
+            max-width: 500px;
+            line-height: 30px;
+            margin: 20px 0 40px 0;
+        }
+    }
+
+    &__button {
+        display: inline-block;
+        padding: 11px 27px;
+        color: #fff;
+        margin-right: 20px;
+        text-decoration: none;
+        position: relative;
+        transition: background 1s, border .5s ease-in-out;
+
+        &--purple {
+            border: 1px solid #AB00FF;
+            background-color: #AB00FF;
+        }
+
+        &--outline {
+            border: 1px solid currentColor;
+            background-color: transparent;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background-color: #0099FF;
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .5s ease-in-out;
+        }
+
+        &:hover {
+            background: none;
+            border-color: currentColor;
+
+            &::before {
+                transform-origin: left;
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__footer {
+        padding: 1.5em 0;
+        display: inline-flex;
+        gap: 1em; 
+        font-size: .8rem;
+
+        a {
+            color: #CECECE;
+            text-decoration: none;
+
+            &:last-child {
+                text-decoration: underline;
+            }
+        }
+
+    }
+
+
+    &__img {
+        background: url('./assets/imgs/bg/bg-2x.jpg') no-repeat 10% 30%;
+        background-size: cover;
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 739px;
+    }
+
+}
