@@ -8,7 +8,11 @@ body {
   background-color: #000B43;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.8rem, 2vw, 0.9rem); }
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  height: 100vh; }
+
+#root {
+  height: 100%; }
 
 .center {
   width: 100%;
@@ -16,7 +20,7 @@ body {
   margin: 0 auto; }
 
 .header {
-  height: 100vh; }
+  height: inherit; }
   @media screen and (max-width: 1259px) {
     .header {
       padding: 0 2em; } }
@@ -36,8 +40,8 @@ body {
     position: absolute; }
     .auro__effect--blue {
       background-color: #0099FF;
-      filter: blur(50px);
-      bottom: -150px;
+      filter: blur(70px);
+      bottom: -180px;
       right: -120px; }
     .auro__effect--purple-pink {
       background-color: #FF00E6;
