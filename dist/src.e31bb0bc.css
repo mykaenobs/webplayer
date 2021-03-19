@@ -87,7 +87,7 @@ body {
     color: #fff;
     text-decoration: none; }
     .nav__link img {
-      width: 40px; }
+      width: 35px; }
 
 .hero {
   height: 100%; }
@@ -95,14 +95,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: inherit; }
+    height: 100vh; }
   .hero__split > div {
     flex: 1; }
   .hero__text {
     color: #fff; }
   .hero .text__headline {
     font-size: clamp(2.25rem, 10vw, 4.75rem);
-    font-weight: 300;
+    font-weight: 400;
     text-shadow: 4px -5px 0 #000E53; }
   .hero .text__desc {
     width: 100%;

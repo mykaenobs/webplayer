@@ -127,7 +127,7 @@ body {
         text-decoration: none;
 
         img {
-            width: 40px;
+            width: 35px;
         }
     }
 
@@ -136,12 +136,12 @@ body {
 
 .hero {
     height: 100%;
-
+    
     &__container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: inherit;
+        height: 100vh;
     }
 
     &__split {
@@ -157,7 +157,7 @@ body {
     .text {
         &__headline {
             font-size: clamp(rem(36), 10vw, rem(76));
-            font-weight: 300;
+            font-weight: 400;
             text-shadow: 4px -5px 0 #000E53;
         }
 
