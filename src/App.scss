@@ -35,10 +35,6 @@ body {
 .header {
     height: inherit;
     // overflow: scroll;
-
-    @media screen and (max-width: 1259px) {
-        padding: 0 2em;
-    }
 }
 
 .auro {
@@ -137,6 +133,13 @@ body {
 
 .hero {
     height: 100%;
+    
+
+    @media screen and (max-width: 1259px) {
+        &__container {
+            padding: 0 2em;
+        }
+    }
     
     &__container {
         display: flex;

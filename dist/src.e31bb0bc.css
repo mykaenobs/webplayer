@@ -21,9 +21,6 @@ body {
 
 .header {
   height: inherit; }
-  @media screen and (max-width: 1259px) {
-    .header {
-      padding: 0 2em; } }
 
 .auro {
   position: fixed;
@@ -91,6 +88,9 @@ body {
 
 .hero {
   height: 100%; }
+  @media screen and (max-width: 1259px) {
+    .hero__container {
+      padding: 0 2em; } }
   .hero__container {
     display: flex;
     flex-direction: column;
