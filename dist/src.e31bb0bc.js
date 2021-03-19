@@ -29912,7 +29912,7 @@ var App = function App() {
     className: "text__headline"
   }, "Get Real Music"), /*#__PURE__*/_react.default.createElement("p", {
     className: "text__desc"
-  }, "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita"), /*#__PURE__*/_react.default.createElement("a", {
+  }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores explicabo blanditiis tenetur corporis. Quidem, officia!"), /*#__PURE__*/_react.default.createElement("a", {
     href: "",
     className: "hero__button hero__button--purple"
   }, "Sign Up"), /*#__PURE__*/_react.default.createElement("a", {

@@ -29,7 +29,7 @@ const App = () => {
                         <div className="hero__split">
                            <div className="hero__text text">
                                <h1 className="text__headline">Get Real Music</h1>
-                               <p className="text__desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita</p>
+                               <p className="text__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores explicabo blanditiis tenetur corporis. Quidem, officia!</p>
                                <a href="" className="hero__button hero__button--purple">Sign Up</a>
                                <a href="" className="hero__button hero__button--outline">Browse Songs</a>
                            </div>
