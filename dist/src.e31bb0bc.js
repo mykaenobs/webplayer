@@ -29867,19 +29867,7 @@ var _light = _interopRequireDefault(require("./assets/imgs/icons/light.svg"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "auro"
-  }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "auro__effect auro__effect--dark-blue"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "auro__effect auro__effect--green"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "auro__effect auro__effect--blue"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "auro__effect auro__effect--purple-pink"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    className: "auro__effect auro__effect--purple"
-  })), /*#__PURE__*/_react.default.createElement("header", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("header", {
     className: "header",
     id: "header"
   }, /*#__PURE__*/_react.default.createElement("div", {
