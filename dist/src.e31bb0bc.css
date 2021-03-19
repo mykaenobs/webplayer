@@ -97,7 +97,7 @@ body {
   .hero__text {
     color: #fff; }
   .hero .text__headline {
-    font-size: 4.75rem;
+    font-size: clamp(2.25rem, 10vw, 4.75rem);
     font-weight: 300;
     text-shadow: 4px -5px 0 #000E53; }
   .hero .text__desc {
