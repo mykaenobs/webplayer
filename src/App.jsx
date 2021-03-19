@@ -22,9 +22,15 @@ const App = () => {
                            <div className="hero__text text">
                                <h1 className="text__headline">Lorem, ipsum dolor.</h1>
                                <p className="text__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusantium corporis minima aspernatur distinctio iure doloremque, animi asperiores accusamus illo?</p>
-                               <a href="">Lorem.</a><a href="">Laudantium?</a>
+                               <a href="" className="hero__button hero__button--purple">Lorem.</a><a href="" className="hero__button hero__button--outline">Laudantium?</a>
                            </div>
                            <div className="hero__img"></div>
+                        </div>
+
+                        <div className="footer">
+                            <a href="#">Lorem.</a>
+                            <a href="#">Numquam?</a>
+                            <a href="#">Alias!</a>
                         </div>
                     </div>
                 </div>

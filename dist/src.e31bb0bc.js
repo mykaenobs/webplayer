@@ -29894,12 +29894,22 @@ var App = function App() {
   }, "Lorem, ipsum dolor."), /*#__PURE__*/_react.default.createElement("p", {
     className: "text__desc"
   }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusantium corporis minima aspernatur distinctio iure doloremque, animi asperiores accusamus illo?"), /*#__PURE__*/_react.default.createElement("a", {
-    href: ""
+    href: "",
+    className: "hero__button hero__button--purple"
   }, "Lorem."), /*#__PURE__*/_react.default.createElement("a", {
-    href: ""
+    href: "",
+    className: "hero__button hero__button--outline"
   }, "Laudantium?")), /*#__PURE__*/_react.default.createElement("div", {
     className: "hero__img"
-  }))))));
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "footer"
+  }, /*#__PURE__*/_react.default.createElement("a", {
+    href: "#"
+  }, "Lorem."), /*#__PURE__*/_react.default.createElement("a", {
+    href: "#"
+  }, "Numquam?"), /*#__PURE__*/_react.default.createElement("a", {
+    href: "#"
+  }, "Alias!"))))));
 };
 
 var _default = App;
@@ -29944,7 +29954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49888" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49924" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
