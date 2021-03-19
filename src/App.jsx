@@ -6,14 +6,14 @@ import light from './assets/imgs/icons/light.svg';
 const App = () => {
     return (
         <>
-            <div className="auro">
-                <span className="auro__effect auro__effect--dark-blue"></span>
-                <span className="auro__effect auro__effect--green"></span>
-                <span className="auro__effect auro__effect--blue"></span>
-                <span className="auro__effect auro__effect--purple-pink"></span>
-                <span className="auro__effect auro__effect--purple"></span>
-            </div>
             <header className="header" id="header">
+                <div className="auro">
+                    <span className="auro__effect auro__effect--dark-blue"></span>
+                    <span className="auro__effect auro__effect--green"></span>
+                    <span className="auro__effect auro__effect--blue"></span>
+                    <span className="auro__effect auro__effect--purple-pink"></span>
+                    <span className="auro__effect auro__effect--purple"></span>
+                </div>
                 <div className="hero center">
                     <div className="hero__container">
                         <nav id="nav" className="nav">

@@ -34,6 +34,7 @@ body {
 
 .header {
     height: inherit;
+    // overflow: scroll;
 
     @media screen and (max-width: 1259px) {
         padding: 0 2em;
@@ -41,7 +42,7 @@ body {
 }
 
 .auro {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;  
     top: 0;
@@ -235,7 +236,7 @@ body {
     &__img {
         background: url('./assets/imgs/bg/bg-2x.jpg') no-repeat 10% 30%;
         background-size: cover;
-        position: absolute;
+        position: fixed;
         z-index: -2;
         top: 0;
         right: 0;
