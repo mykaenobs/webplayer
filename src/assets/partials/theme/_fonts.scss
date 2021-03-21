@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+$fonts: (
+    head: (
+        100: 14,
+        200: 16,
+        300: 56,
+    ),
+    text: (
+        100: 14,
+        200: 16,
+        300: 24,
+    ),
+);
+
+// $fonts: (
+//     head: (
+//         100: 24 / 16 + rem,
+//         200: 36 / 16 + rem,
+//         300: 76 / 16 + rem,
+//     ),
+//     text: (
+//         100: 16 / 16 + rem,
+//         200: 18 / 16 + rem,
+//         300: 24 / 16 + rem,
+//     ),
+// );

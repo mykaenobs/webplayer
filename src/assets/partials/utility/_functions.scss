@@ -1,0 +1,13 @@
+@function color($key, $val) {
+    @return map-get(map-get($colors, $key), $val);
+}
+
+@function font($key, $val, $unit) {
+    $ft:  map-get(map-get($fonts, $key), $val);
+    @if $unit == 'rem' {
+        @return $ft / 16 + rem;
+    }
+    @else {
+        @return $ft / 16 + em;
+    }
+}
