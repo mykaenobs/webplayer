@@ -25,6 +25,11 @@ const Navbar = () => {
                         </a>
                     </li>
                 </ul>
+                <div className="nav__menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     );

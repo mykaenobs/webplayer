@@ -29888,7 +29888,9 @@ var Navbar = function Navbar() {
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
     className: "nav__link nav__link--button"
-  }, "Get A Quote")))));
+  }, "Get A Quote"))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "nav__menu"
+  }, /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null))));
 };
 
 var _default = Navbar;
