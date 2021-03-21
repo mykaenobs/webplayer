@@ -12,13 +12,13 @@ const App = () => {
         // recipeApi();
     }, []);
 
-    const recipeApi = async () => {
-        const res = await fetch(
-            `https://api.edamam.com/search?q=burger&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`
-        );
-        const data = await res.json();
-        console.log(data);
-    };
+    // const recipeApi = async () => {
+    //     const res = await fetch(
+    //         `https://api.edamam.com/search?q=burger&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`
+    //     );
+    //     const data = await res.json();
+    //     console.log(data);
+    // };
 
     return (
         <>
