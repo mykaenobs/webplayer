@@ -30877,8 +30877,7 @@ var App = function App() {
       setData = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    document.title = "Recipe App";
-    recipeApi();
+    document.title = "Recipe App"; // recipeApi();
   }, []);
 
   var recipeApi = /*#__PURE__*/function () {

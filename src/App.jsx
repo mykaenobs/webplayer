@@ -9,7 +9,7 @@ const App = () => {
 
     useEffect(() => {
         document.title = "Recipe App";
-        recipeApi();
+        // recipeApi();
     }, []);
 
     const recipeApi = async () => {
