@@ -1,5 +1,6 @@
 @import '../../assets/partials/theme/fonts';
 @import '../../assets/partials/theme/colors';
+@import "../../assets/partials/theme/media";
 @import '../../assets/partials/utility/functions';
 @import '../../assets/partials/utility/utilies';
 
@@ -15,6 +16,10 @@
         background-repeat: no-repeat;
         background-blend-mode: multiply;
         height: calc(100vh - 60px);
+
+        @include desktop {
+            padding: 0 2em;
+        }
     }
    
     &__text {
