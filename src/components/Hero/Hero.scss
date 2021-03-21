@@ -1,0 +1,65 @@
+@import '../../assets/partials/theme/fonts';
+@import '../../assets/partials/theme/colors';
+@import '../../assets/partials/utility/functions';
+@import '../../assets/partials/utility/utilies';
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../../assets/imgs/bg/bg-1x.jpg') no-repeat 50% 50%;
+    background-blend-mode: multiply;
+    height: calc(100vh - 60px);
+
+    &__container {
+        height: inherit;
+        display: grid;
+        place-items: center;
+    }
+   
+    &__text {
+        color: color(accents, 400);
+        text-align: center;
+    }
+
+    &__headline {
+        font-size: font(head, 300, rem);
+    }
+
+    &__desc {
+        margin: 2em auto;
+        width: 100%;
+        max-width: 600px;
+        font-size: font(head, 200, rem);
+        line-height: 25px;
+    }
+
+    &__link {
+        color: color(accents, 400);
+        border: 2px solid color(accents, 400);
+        border-radius: 5px;
+        display: inline-block;
+        padding: .8em 1.5em;
+        font-weight: 500;
+
+        &:hover {
+            color: color(accents, 400);
+        }
+    }
+
+
+    &__scroll {
+        p {
+            border: 2px solid color(accents, 400);
+            border-radius: 25px;
+            width: 20px;
+            height: 40px;
+            padding-top: .2em;
+            display: flex;
+            justify-content: center;
+        }
+        span {
+            border: 2px solid color(accents, 400);
+            border-radius: 25px;
+            width: 10px;
+            height: 20px;
+        }
+    }
+}
