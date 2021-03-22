@@ -30737,17 +30737,17 @@ var Recipe = function Recipe(_ref) {
     className: "recipe"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "recipe__container"
-  }, /*#__PURE__*/_react.default.createElement("figure", null, /*#__PURE__*/_react.default.createElement("a", {
-    href: "#"
-  }, /*#__PURE__*/_react.default.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("figure", null, /*#__PURE__*/_react.default.createElement("img", {
     className: "recipe__img",
     src: img,
     alt: ""
-  })), /*#__PURE__*/_react.default.createElement("figcaption", {
+  }), /*#__PURE__*/_react.default.createElement("figcaption", {
     className: "recipe__cap"
   }, /*#__PURE__*/_react.default.createElement("h3", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "#"
-  }, "Duck confit burger")), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "2879kcal"), /*#__PURE__*/_react.default.createElement("span", null, "59kg"))))));
+  }, "Duck confit burger")), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: ""
+  }, "See Recipe"))))));
 };
 
 var _default = Recipe;
@@ -30925,7 +30925,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58802" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59008" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

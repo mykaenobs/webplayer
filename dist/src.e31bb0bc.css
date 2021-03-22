@@ -63,7 +63,7 @@ a {
   .nav__link--button {
     background-color: #ff0c6f;
     display: block;
-    padding: 0.6em 1em;
+    padding: 0.6em .8em;
     border-radius: 5px;
     color: #ffffff;
     position: relative;
@@ -218,6 +218,10 @@ a {
   justify-content: space-between;
   align-items: center; }
 
+@media screen and (max-width: 1300px) {
+  .recipes__container {
+    padding: 0 2em; } }
+
 .recipes__title {
   color: #222222;
   margin-bottom: 2em; }
@@ -225,7 +229,7 @@ a {
 .recipes__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3em 5em; }
+  gap: 3em 2em; }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 .cc {
@@ -243,15 +247,56 @@ a {
   justify-content: space-between;
   align-items: center; }
 
+.recipe figure {
+  position: relative; }
+
 .recipe__img {
-  width: 100%; }
+  width: 100%;
+  display: block; }
 
-.recipe__cap h3 {
-  font-weight: 500; }
-
-.recipe__cap p {
-  font-size: .8rem;
-  color: #707070; }
+.recipe__cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem .5rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center; }
+  .recipe__cap a {
+    color: #ffffff; }
+  .recipe__cap h3 {
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0.3em 0; }
+  .recipe__cap p a {
+    font-size: .8rem;
+    color: #707070;
+    font-weight: 400;
+    background-color: #ff0c6f;
+    display: block;
+    padding: 0.8em;
+    border-radius: 5px;
+    color: #ffffff;
+    position: relative;
+    z-index: 0;
+    overflow: hidden; }
+    .recipe__cap p a::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background-color: #f10c69;
+      height: 60px;
+      width: 60px;
+      z-index: -1;
+      border-radius: 50%;
+      transition: transform 0.25s ease-in-out; }
+    .recipe__cap p a:hover {
+      color: #ffffff; }
+      .recipe__cap p a:hover::after {
+        transform: scale(4.5); }
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
