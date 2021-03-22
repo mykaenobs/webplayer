@@ -274,7 +274,7 @@ a {
   .recipe__cap p a {
     font-size: .8rem;
     color: #707070;
-    font-weight: 400;
+    font-weight: 500;
     background-color: #ff0c6f;
     display: block;
     padding: 0.8em;
@@ -298,6 +298,17 @@ a {
       color: #ffffff; }
       .recipe__cap p a:hover::after {
         transform: scale(4.5); }
+
+.footer {
+  text-align: center;
+  margin: 4em;
+  padding: 2em 2em; }
+  .footer p {
+    color: #989898;
+    font-weight: 400; }
+    .footer p a {
+      color: #369AFF;
+      font-weight: 500; }
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */

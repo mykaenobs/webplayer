@@ -30818,7 +30818,37 @@ var Recipes = function Recipes() {
 
 var _default = Recipes;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Recipes.scss":"components/Recipes/Recipes.scss","../Recipe/Recipe":"components/Recipe/Recipe.jsx","../../assets/imgs/thumbnails/t-1.jpg":"assets/imgs/thumbnails/t-1.jpg","../../assets/imgs/thumbnails/t-2.jpg":"assets/imgs/thumbnails/t-2.jpg","../../assets/imgs/thumbnails/t-3.jpg":"assets/imgs/thumbnails/t-3.jpg","../../assets/imgs/thumbnails/t-4.jpg":"assets/imgs/thumbnails/t-4.jpg","../../assets/imgs/thumbnails/t-5.jpg":"assets/imgs/thumbnails/t-5.jpg","../../assets/imgs/thumbnails/t-6.jpg":"assets/imgs/thumbnails/t-6.jpg"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Recipes.scss":"components/Recipes/Recipes.scss","../Recipe/Recipe":"components/Recipe/Recipe.jsx","../../assets/imgs/thumbnails/t-1.jpg":"assets/imgs/thumbnails/t-1.jpg","../../assets/imgs/thumbnails/t-2.jpg":"assets/imgs/thumbnails/t-2.jpg","../../assets/imgs/thumbnails/t-3.jpg":"assets/imgs/thumbnails/t-3.jpg","../../assets/imgs/thumbnails/t-4.jpg":"assets/imgs/thumbnails/t-4.jpg","../../assets/imgs/thumbnails/t-5.jpg":"assets/imgs/thumbnails/t-5.jpg","../../assets/imgs/thumbnails/t-6.jpg":"assets/imgs/thumbnails/t-6.jpg"}],"components/Footer/Footer.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Footer/Footer.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Footer.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+  return /*#__PURE__*/_react.default.createElement("footer", {
+    id: "footer",
+    className: "footer"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "\xA9 2021 Copyright. Recipe app created by ", /*#__PURE__*/_react.default.createElement("a", {
+    href: ""
+  }, "myka enobs")));
+};
+
+var _default = Footer;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Footer.scss":"components/Footer/Footer.scss"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30835,6 +30865,8 @@ var _Header = _interopRequireDefault(require("./components/Header/Header"));
 var _Search = _interopRequireDefault(require("./components/Search/Search"));
 
 var _Recipes = _interopRequireDefault(require("./components/Recipes/Recipes"));
+
+var _Footer = _interopRequireDefault(require("./components/Footer/Footer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30880,12 +30912,12 @@ var App = function App() {
     className: "main"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "main__container"
-  }, /*#__PURE__*/_react.default.createElement(_Search.default, null), /*#__PURE__*/_react.default.createElement(_Recipes.default, null))));
+  }, /*#__PURE__*/_react.default.createElement(_Search.default, null), /*#__PURE__*/_react.default.createElement(_Recipes.default, null))), /*#__PURE__*/_react.default.createElement(_Footer.default, null));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./components/Header/Header":"components/Header/Header.jsx","./components/Search/Search":"components/Search/Search.jsx","./components/Recipes/Recipes":"components/Recipes/Recipes.jsx"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./components/Header/Header":"components/Header/Header.jsx","./components/Search/Search":"components/Search/Search.jsx","./components/Recipes/Recipes":"components/Recipes/Recipes.jsx","./components/Footer/Footer":"components/Footer/Footer.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -30925,7 +30957,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59217" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59321" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
