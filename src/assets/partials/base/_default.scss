@@ -2,15 +2,17 @@
 @import '../utility/functions';
 
 * {
+    font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     list-style-type: none;
     margin: 0;
+    outline: none;
 }
 
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(.8rem, 2vw, .9rem);
+    font-size: .9rem;
+    // font-size: clamp(.8rem, 2vw, .9rem);
     height: 100vh;
     background-color: #fff;
 }

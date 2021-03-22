@@ -1,0 +1,23 @@
+@import "../../assets/partials/theme/fonts";
+@import "../../assets/partials/theme/colors";
+@import "../../assets/partials/theme/media";
+@import "../../assets/partials/utility/functions";
+@import "../../assets/partials/utility/utilies";
+
+.recipe {
+
+    &__img {
+        width: 100%;
+    }
+    
+    &__cap {
+        h3 {
+            font-weight: 500;
+        }
+
+        p {
+            font-size: .8rem;
+            color: color(accents, 200);
+        }
+    }
+}

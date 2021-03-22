@@ -1,5 +1,7 @@
 import React from "react";
 import "./Navbar.scss";
+import { InlineIcon } from "@iconify/react";
+import menu from "@iconify/icons-mdi-light/menu";
 
 const Navbar = () => {
     return (
@@ -26,9 +28,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <div className="nav__menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <InlineIcon icon={menu} />
                 </div>
             </div>
         </nav>
