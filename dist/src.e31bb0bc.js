@@ -29849,7 +29849,690 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Navbar/Navbar.jsx":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@iconify/react/dist/icon.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = exports.InlineIcon = exports.Icon = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/**
+ * Unique id counter
+ *
+ * @type {number}
+ */
+var idCounter = 0;
+/**
+ * Regex used to split dimensions
+ *
+ * @type {RegExp}
+ * @private
+ */
+
+var unitsSplit = /(-?[0-9.]*[0-9]+[0-9.]*)/g;
+var unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
+/**
+ * Attributes used for icon
+ *
+ * @type {string[]}
+ */
+
+var iconAttributes = ['width', 'height', 'inline', 'hFlip', 'vFlip', 'flip', 'rotate', 'align', 'color', 'box'];
+/**
+ * Default attribute values
+ *
+ * @type {object}
+ */
+
+var defaultAttributes = {
+  left: 0,
+  top: 0,
+  width: 16,
+  height: 16,
+  rotate: 0,
+  hFlip: false,
+  vFlip: false
+};
+/**
+ * Add missing properties to icon
+ *
+ * Important: in PHP version of this library this function is part of Collection class: Collection::addMissingAttributes()
+ *
+ * JavaScript version uses separate file so this function could be used in React and other components without loading
+ * entire Collection class.
+ *
+ * @param {object} data
+ * @return {object}
+ */
+
+function normalize(data) {
+  // Object.create, compatible with IE11
+  var item = Object.create(null);
+  var key;
+
+  for (key in defaultAttributes) {
+    item[key] = defaultAttributes[key];
+  }
+
+  for (key in data) {
+    item[key] = data[key];
+  } // Attributes derived from other attributes
+
+
+  if (item.inlineTop === void 0) {
+    item.inlineTop = item.top;
+  }
+
+  if (item.inlineHeight === void 0) {
+    item.inlineHeight = item.height;
+  }
+
+  if (item.verticalAlign === void 0) {
+    // -0.143 if icon is designed for 14px height,
+    // otherwise assume icon is designed for 16px height
+    item.verticalAlign = item.height % 7 === 0 && item.height % 8 !== 0 ? -0.143 : -0.125;
+  }
+
+  return item;
+}
+/**
+ * Get preserveAspectRatio attribute value
+ *
+ * @param {object} align
+ * @return {string}
+ * @private
+ */
+
+
+function getAlignment(align) {
+  var result;
+
+  switch (align.horizontal) {
+    case 'left':
+      result = 'xMin';
+      break;
+
+    case 'right':
+      result = 'xMax';
+      break;
+
+    default:
+      result = 'xMid';
+  }
+
+  switch (align.vertical) {
+    case 'top':
+      result += 'YMin';
+      break;
+
+    case 'bottom':
+      result += 'YMax';
+      break;
+
+    default:
+      result += 'YMid';
+  }
+
+  result += align.slice ? ' slice' : ' meet';
+  return result;
+}
+/**
+ * SVG class
+ *
+ * @see @iconify/json-tools/src/svg.js
+ */
+
+
+var SVG = /*#__PURE__*/function () {
+  /**
+   * Constructor
+   *
+   * @param icon Icon data
+   *  Use Collection.getIconData() to retrieve icon data
+   */
+  function SVG(icon) {
+    _classCallCheck(this, SVG);
+
+    this._item = icon;
+  }
+  /**
+   * Get SVG attributes
+   *
+   * @param {object} props Custom properties (same as query string in Iconify API)
+   * @returns {string}
+   */
+
+
+  _createClass(SVG, [{
+    key: "getAttributes",
+    value: function getAttributes(props) {
+      var item = this._item;
+
+      if (_typeof(props) !== 'object') {
+        props = Object.create(null);
+      } // Set data
+
+
+      var align = {
+        horizontal: 'center',
+        vertical: 'middle',
+        slice: false
+      };
+      var transform = {
+        rotate: item.rotate,
+        hFlip: item.hFlip,
+        vFlip: item.vFlip
+      };
+      var style = Object.create(null);
+      var attributes = Object.create(null); // Get width/height
+
+      var inline = props.inline === true || props.inline === 'true' || props.inline === '1';
+      var box = {
+        left: item.left,
+        top: inline ? item.inlineTop : item.top,
+        width: item.width,
+        height: inline ? item.inlineHeight : item.height
+      }; // Transformations
+
+      ['hFlip', 'vFlip'].forEach(function (key) {
+        if (props[key] !== void 0 && (props[key] === true || props[key] === 'true' || props[key] === '1')) {
+          transform[key] = !transform[key];
+        }
+      });
+
+      if (props.flip !== void 0) {
+        props.flip.toLowerCase().split(/[\s,]+/).forEach(function (value) {
+          switch (value) {
+            case 'horizontal':
+              transform.hFlip = !transform.hFlip;
+              break;
+
+            case 'vertical':
+              transform.vFlip = !transform.vFlip;
+          }
+        });
+      }
+
+      if (props.rotate !== void 0) {
+        var value = props.rotate;
+
+        if (typeof value === 'number') {
+          transform.rotate += value;
+        } else if (typeof value === 'string') {
+          var units = value.replace(/^-?[0-9.]*/, '');
+
+          if (units === '') {
+            value = parseInt(value);
+
+            if (!isNaN(value)) {
+              transform.rotate += value;
+            }
+          } else if (units !== value) {
+            var split = false;
+
+            switch (units) {
+              case '%':
+                // 25% -> 1, 50% -> 2, ...
+                split = 25;
+                break;
+
+              case 'deg':
+                // 90deg -> 1, 180deg -> 2, ...
+                split = 90;
+            }
+
+            if (split) {
+              value = parseInt(value.slice(0, value.length - units.length));
+
+              if (!isNaN(value)) {
+                transform.rotate += Math.round(value / split);
+              }
+            }
+          }
+        }
+      } // Apply transformations to box
+
+
+      var transformations = [],
+          tempValue;
+
+      if (transform.hFlip) {
+        if (transform.vFlip) {
+          transform.rotate += 2;
+        } else {
+          // Horizontal flip
+          transformations.push('translate(' + (box.width + box.left) + ' ' + (0 - box.top) + ')');
+          transformations.push('scale(-1 1)');
+          box.top = box.left = 0;
+        }
+      } else if (transform.vFlip) {
+        // Vertical flip
+        transformations.push('translate(' + (0 - box.left) + ' ' + (box.height + box.top) + ')');
+        transformations.push('scale(1 -1)');
+        box.top = box.left = 0;
+      }
+
+      switch (transform.rotate % 4) {
+        case 1:
+          // 90deg
+          tempValue = box.height / 2 + box.top;
+          transformations.unshift('rotate(90 ' + tempValue + ' ' + tempValue + ')'); // swap width/height and x/y
+
+          if (box.left !== 0 || box.top !== 0) {
+            tempValue = box.left;
+            box.left = box.top;
+            box.top = tempValue;
+          }
+
+          if (box.width !== box.height) {
+            tempValue = box.width;
+            box.width = box.height;
+            box.height = tempValue;
+          }
+
+          break;
+
+        case 2:
+          // 180deg
+          transformations.unshift('rotate(180 ' + (box.width / 2 + box.left) + ' ' + (box.height / 2 + box.top) + ')');
+          break;
+
+        case 3:
+          // 270deg
+          tempValue = box.width / 2 + box.left;
+          transformations.unshift('rotate(-90 ' + tempValue + ' ' + tempValue + ')'); // swap width/height and x/y
+
+          if (box.left !== 0 || box.top !== 0) {
+            tempValue = box.left;
+            box.left = box.top;
+            box.top = tempValue;
+          }
+
+          if (box.width !== box.height) {
+            tempValue = box.width;
+            box.width = box.height;
+            box.height = tempValue;
+          }
+
+          break;
+      } // Calculate dimensions
+      // Values for width/height: null = default, 'auto' = from svg, false = do not set
+      // Default: if both values aren't set, height defaults to '1em', width is calculated from height
+
+
+      var customWidth = props.width ? props.width : null;
+      var customHeight = props.height ? props.height : null;
+      var width, height;
+
+      if (customWidth === null && customHeight === null) {
+        customHeight = '1em';
+      }
+
+      if (customWidth !== null && customHeight !== null) {
+        width = customWidth;
+        height = customHeight;
+      } else if (customWidth !== null) {
+        width = customWidth;
+        height = SVG.calculateDimension(width, box.height / box.width);
+      } else {
+        height = customHeight;
+        width = SVG.calculateDimension(height, box.width / box.height);
+      }
+
+      if (width !== false) {
+        attributes.width = width === 'auto' ? box.width : width;
+      }
+
+      if (height !== false) {
+        attributes.height = height === 'auto' ? box.height : height;
+      } // Add vertical-align for inline icon
+
+
+      if (inline && item.verticalAlign !== 0) {
+        style['vertical-align'] = item.verticalAlign + 'em';
+      } // Check custom alignment
+
+
+      if (props.align !== void 0) {
+        props.align.toLowerCase().split(/[\s,]+/).forEach(function (value) {
+          switch (value) {
+            case 'left':
+            case 'right':
+            case 'center':
+              align.horizontal = value;
+              break;
+
+            case 'top':
+            case 'bottom':
+            case 'middle':
+              align.vertical = value;
+              break;
+
+            case 'crop':
+              align.slice = true;
+              break;
+
+            case 'meet':
+              align.slice = false;
+          }
+        });
+      } // Generate viewBox and preserveAspectRatio attributes
+
+
+      attributes.preserveAspectRatio = getAlignment(align);
+      attributes.viewBox = box.left + ' ' + box.top + ' ' + box.width + ' ' + box.height; // Generate body
+
+      var body = SVG.replaceIDs(item.body);
+
+      if (props.color !== void 0) {
+        body = body.replace(/currentColor/g, props.color);
+      }
+
+      if (transformations.length) {
+        body = '<g transform="' + transformations.join(' ') + '">' + body + '</g>';
+      }
+
+      if (props.box === true || props.box === 'true' || props.box === '1') {
+        // Add transparent bounding box
+        body += '<rect x="' + box.left + '" y="' + box.top + '" width="' + box.width + '" height="' + box.height + '" fill="rgba(0, 0, 0, 0)" />';
+      }
+
+      return {
+        attributes: attributes,
+        body: body,
+        style: style
+      };
+    }
+    /**
+     * Generate SVG
+     *
+     * @param {object} props Custom properties (same as query string in Iconify API)
+     * @param {boolean} [addExtra] True if extra attributes should be added to SVG.
+     *  Due to lack of functions in JavaScript for escaping attributes, it is your job to make sure key and value are both properly escaped. Default value is false.
+     * @returns {string}
+     */
+
+  }, {
+    key: "getSVG",
+    value: function getSVG(props, addExtra) {
+      var attributes = SVG.splitAttributes(props),
+          data = this.getAttributes(attributes.icon);
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'; // Add extra attributes - assume that their names and values are escaped
+
+      if (addExtra) {
+        Object.keys(attributes.node).forEach(function (attr) {
+          svg += ' ' + attr + '="' + attributes.node[attr] + '"';
+        });
+      } // Add SVG attributes
+
+
+      Object.keys(data.attributes).forEach(function (attr) {
+        svg += ' ' + attr + '="' + data.attributes[attr] + '"';
+      }); // Add style with 360deg transformation to style to prevent subpixel rendering bug
+
+      svg += ' style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);';
+      Object.keys(data.style).forEach(function (attr) {
+        svg += ' ' + attr + ': ' + data.style[attr] + ';';
+      });
+
+      if (props && props.style !== void 0) {
+        svg += props.style;
+      }
+
+      svg += '">';
+      svg += data.body + '</svg>';
+      return svg;
+    }
+    /**
+     * Split attributes
+     *
+     * @param props
+     * @return {{icon: {}, node: {}}}
+     */
+
+  }], [{
+    key: "splitAttributes",
+    value: function splitAttributes(props) {
+      var result = {
+        icon: Object.create(null),
+        node: Object.create(null)
+      };
+      Object.keys(props).forEach(function (name) {
+        result[iconAttributes.indexOf(name) === -1 ? 'node' : 'icon'][name] = props[name];
+      });
+      return result;
+    }
+    /**
+     * Calculate second dimension when only 1 dimension is set
+     *
+     * @param {string|number} size One dimension (such as width)
+     * @param {number} ratio Width/height ratio.
+     *      If size == width, ratio = height/width
+     *      If size == height, ratio = width/height
+     * @param {number} [precision] Floating number precision in result to minimize output. Default = 100
+     * @return {string|number|null} Another dimension, null on error
+     */
+
+  }, {
+    key: "calculateDimension",
+    value: function calculateDimension(size, ratio, precision) {
+      if (ratio === 1) {
+        return size;
+      }
+
+      precision = precision === void 0 ? 100 : precision;
+
+      if (typeof size === 'number') {
+        return Math.ceil(size * ratio * precision) / precision;
+      } // split code into sets of strings and numbers
+
+
+      var split = size.split(unitsSplit);
+
+      if (split === null || !split.length) {
+        return null;
+      }
+
+      var results = [],
+          code = split.shift(),
+          isNumber = unitsTest.test(code),
+          num;
+
+      while (true) {
+        if (isNumber) {
+          num = parseFloat(code);
+
+          if (isNaN(num)) {
+            results.push(code);
+          } else {
+            results.push(Math.ceil(num * ratio * precision) / precision);
+          }
+        } else {
+          results.push(code);
+        } // next
+
+
+        code = split.shift();
+
+        if (code === void 0) {
+          return results.join('');
+        }
+
+        isNumber = !isNumber;
+      }
+    }
+    /**
+     * Replace IDs in SVG output with unique IDs
+     * Fast replacement without parsing XML, assuming commonly used patterns.
+     *
+     * @param {string} body
+     * @return {string}
+     */
+
+  }, {
+    key: "replaceIDs",
+    value: function replaceIDs(body) {
+      var regex = /\sid="(\S+)"/g,
+          ids = [],
+          match,
+          prefix;
+
+      function strReplace(search, replace, subject) {
+        var pos = 0;
+
+        while ((pos = subject.indexOf(search, pos)) !== -1) {
+          subject = subject.slice(0, pos) + replace + subject.slice(pos + search.length);
+          pos += replace.length;
+        }
+
+        return subject;
+      } // Find all IDs
+
+
+      while (match = regex.exec(body)) {
+        ids.push(match[1]);
+      }
+
+      if (!ids.length) {
+        return body;
+      }
+
+      prefix = 'IconifyId-' + Date.now().toString(16) + '-' + (Math.random() * 0x1000000 | 0).toString(16) + '-'; // Replace with unique ids
+
+      ids.forEach(function (id) {
+        var newID = prefix + idCounter;
+        idCounter++;
+        body = strReplace('="' + id + '"', '="' + newID + '"', body);
+        body = strReplace('="#' + id + '"', '="#' + newID + '"', body);
+        body = strReplace('(#' + id + ')', '(#' + newID + ')', body);
+      });
+      return body;
+    }
+  }]);
+
+  return SVG;
+}();
+/**
+ * Create React component with SVG data
+ *
+ * @param {object} props
+ * @param {boolean} inline
+ * @return {null|React.Component}
+ */
+
+
+function component(props, inline) {
+  if (_typeof(props.icon) !== 'object') {
+    return null;
+  } // Split properties into SVG properties and icon properties
+
+
+  var split = SVG.splitAttributes(props),
+      iconProps = split.icon,
+      customAttributes = split.node;
+  delete customAttributes.icon; // Set default inline value
+
+  if (iconProps.inline === void 0) {
+    iconProps.inline = inline;
+  } // Get SVG data
+
+
+  var svg = new SVG(normalize(props.icon));
+  var iconData = svg.getAttributes(iconProps); // Set style
+
+  var style = {
+    transform: 'rotate(360deg)'
+  };
+
+  if (iconData.style['vertical-align'] !== void 0) {
+    style.verticalAlign = iconData.style['vertical-align'];
+  }
+
+  if (props.style !== void 0) {
+    for (var _key in props.style) {
+      style[_key] = props.style[_key];
+    }
+  } // Generate element attributes
+
+
+  var attributes = {
+    xmlns: 'http://www.w3.org/2000/svg',
+    focusable: false,
+    style: style
+  };
+  var key;
+
+  for (key in customAttributes) {
+    attributes[key] = customAttributes[key];
+  }
+
+  for (key in iconData.attributes) {
+    attributes[key] = iconData.attributes[key];
+  }
+
+  attributes.dangerouslySetInnerHTML = {
+    __html: iconData.body
+  }; // Generate SVG
+
+  return _react["default"].createElement('svg', attributes, null);
+}
+/**
+ * Icon without vertical alignment
+ *
+ * @param {object} props
+ * @return {React.Component}
+ * @constructor
+ */
+
+
+var Icon = function Icon(props) {
+  return component(props, false);
+};
+/**
+ * Icon with vertical alignment
+ *
+ * @param {object} props
+ * @return {React.Component}
+ * @constructor
+ */
+
+
+exports.Icon = Icon;
+
+var InlineIcon = function InlineIcon(props) {
+  return component(props, true);
+};
+/**
+ * Default export
+ */
+
+
+exports.InlineIcon = InlineIcon;
+var _default = Icon;
+exports["default"] = _default;
+},{"react":"../node_modules/react/index.js"}],"../node_modules/@iconify/icons-mdi-light/menu.js":[function(require,module,exports) {
+var data = {
+	"body": "<path d=\"M3 8V7h17v1H3zm17 4v1H3v-1h17zM3 17h17v1H3v-1z\" fill=\"currentColor\"/>",
+	"width": 24,
+	"height": 24
+};
+exports.__esModule = true;
+exports.default = data;
+
+},{}],"components/Navbar/Navbar.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29860,6 +30543,10 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 require("./Navbar.scss");
+
+var _react2 = require("@iconify/react");
+
+var _menu = _interopRequireDefault(require("@iconify/icons-mdi-light/menu"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29878,24 +30565,26 @@ var Navbar = function Navbar() {
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
     className: "nav__link"
-  }, "Lorem.")), /*#__PURE__*/_react.default.createElement("li", {
+  }, "Recipes")), /*#__PURE__*/_react.default.createElement("li", {
     className: "nav__list"
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
     className: "nav__link"
-  }, "Obcaecati?")), /*#__PURE__*/_react.default.createElement("li", {
+  }, "Foods")), /*#__PURE__*/_react.default.createElement("li", {
     className: "nav__list"
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
     className: "nav__link nav__link--button"
   }, "Get A Quote"))), /*#__PURE__*/_react.default.createElement("div", {
     className: "nav__menu"
-  }, /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null))));
+  }, /*#__PURE__*/_react.default.createElement(_react2.InlineIcon, {
+    icon: _menu.default
+  }))));
 };
 
 var _default = Navbar;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Navbar.scss":"components/Navbar/Navbar.scss"}],"components/Hero/Hero.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Navbar.scss":"components/Navbar/Navbar.scss","@iconify/react":"../node_modules/@iconify/react/dist/icon.js","@iconify/icons-mdi-light/menu":"../node_modules/@iconify/icons-mdi-light/menu.js"}],"components/Hero/Hero.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -29962,7 +30651,174 @@ var Header = function Header() {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Navbar/Navbar":"components/Navbar/Navbar.jsx","../Hero/Hero":"components/Hero/Hero.jsx"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Navbar/Navbar":"components/Navbar/Navbar.jsx","../Hero/Hero":"components/Hero/Hero.jsx"}],"components/Search/Search.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@iconify/icons-mdi-light/magnify.js":[function(require,module,exports) {
+var data = {
+	"body": "<path d=\"M9.5 4a6.5 6.5 0 0 1 4.932 10.734l5.644 5.644l-.707.707l-5.645-5.645A6.5 6.5 0 1 1 9.5 4zm0 1a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11z\" fill=\"currentColor\"/>",
+	"width": 24,
+	"height": 24
+};
+exports.__esModule = true;
+exports.default = data;
+
+},{}],"components/Search/Search.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Search.scss");
+
+var _react2 = require("@iconify/react");
+
+var _magnify = _interopRequireDefault(require("@iconify/icons-mdi-light/magnify"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Search = function Search() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "search"
+  }, /*#__PURE__*/_react.default.createElement("form", {
+    action: "",
+    className: "form"
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "search",
+    className: "form__group"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    name: "search",
+    id: "search",
+    className: "form__input",
+    placeholder: "Search"
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    className: "form__button"
+  }, /*#__PURE__*/_react.default.createElement(_react2.InlineIcon, {
+    icon: _magnify.default
+  })))));
+};
+
+var _default = Search;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Search.scss":"components/Search/Search.scss","@iconify/react":"../node_modules/@iconify/react/dist/icon.js","@iconify/icons-mdi-light/magnify":"../node_modules/@iconify/icons-mdi-light/magnify.js"}],"components/Recipes/Recipes.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Recipe/Recipe.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Recipe/Recipe.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Recipe.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Recipe = function Recipe(_ref) {
+  var img = _ref.img;
+  return /*#__PURE__*/_react.default.createElement("section", {
+    className: "recipe"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "recipe__container"
+  }, /*#__PURE__*/_react.default.createElement("figure", null, /*#__PURE__*/_react.default.createElement("img", {
+    className: "recipe__img",
+    src: img,
+    alt: ""
+  }), /*#__PURE__*/_react.default.createElement("figcaption", {
+    className: "recipe__cap"
+  }, /*#__PURE__*/_react.default.createElement("h3", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: "#"
+  }, "Duck confit burger")), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: ""
+  }, "See Recipe"))))));
+};
+
+var _default = Recipe;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Recipe.scss":"components/Recipe/Recipe.scss"}],"assets/imgs/thumbnails/t-1.jpg":[function(require,module,exports) {
+module.exports = "/t-1.1c843025.jpg";
+},{}],"assets/imgs/thumbnails/t-2.jpg":[function(require,module,exports) {
+module.exports = "/t-2.357d7b4d.jpg";
+},{}],"assets/imgs/thumbnails/t-3.jpg":[function(require,module,exports) {
+module.exports = "/t-3.74fe932c.jpg";
+},{}],"assets/imgs/thumbnails/t-4.jpg":[function(require,module,exports) {
+module.exports = "/t-4.da706fd8.jpg";
+},{}],"assets/imgs/thumbnails/t-5.jpg":[function(require,module,exports) {
+module.exports = "/t-5.1c205afb.jpg";
+},{}],"assets/imgs/thumbnails/t-6.jpg":[function(require,module,exports) {
+module.exports = "/t-6.3e8fbb26.jpg";
+},{}],"components/Recipes/Recipes.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Recipes.scss");
+
+var _Recipe = _interopRequireDefault(require("../Recipe/Recipe"));
+
+var _t = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-1.jpg"));
+
+var _t2 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-2.jpg"));
+
+var _t3 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-3.jpg"));
+
+var _t4 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-4.jpg"));
+
+var _t5 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-5.jpg"));
+
+var _t6 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-6.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Recipes = function Recipes() {
+  return /*#__PURE__*/_react.default.createElement("section", {
+    className: "recipes"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "recipes__container"
+  }, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "recipes__title"
+  }, "Chicken"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "recipes__grid"
+  }, /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t2.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t3.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t4.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t5.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t6.default
+  }))));
+};
+
+var _default = Recipes;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Recipes.scss":"components/Recipes/Recipes.scss","../Recipe/Recipe":"components/Recipe/Recipe.jsx","../../assets/imgs/thumbnails/t-1.jpg":"assets/imgs/thumbnails/t-1.jpg","../../assets/imgs/thumbnails/t-2.jpg":"assets/imgs/thumbnails/t-2.jpg","../../assets/imgs/thumbnails/t-3.jpg":"assets/imgs/thumbnails/t-3.jpg","../../assets/imgs/thumbnails/t-4.jpg":"assets/imgs/thumbnails/t-4.jpg","../../assets/imgs/thumbnails/t-5.jpg":"assets/imgs/thumbnails/t-5.jpg","../../assets/imgs/thumbnails/t-6.jpg":"assets/imgs/thumbnails/t-6.jpg"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29975,6 +30831,10 @@ var _react = _interopRequireWildcard(require("react"));
 require("./App.scss");
 
 var _Header = _interopRequireDefault(require("./components/Header/Header"));
+
+var _Search = _interopRequireDefault(require("./components/Search/Search"));
+
+var _Recipes = _interopRequireDefault(require("./components/Recipes/Recipes"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30015,12 +30875,17 @@ var App = function App() {
   //     console.log(data);
   // };
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("main", {
+    id: "main",
+    className: "main"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "main__container"
+  }, /*#__PURE__*/_react.default.createElement(_Search.default, null), /*#__PURE__*/_react.default.createElement(_Recipes.default, null))));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./components/Header/Header":"components/Header/Header.jsx"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./components/Header/Header":"components/Header/Header.jsx","./components/Search/Search":"components/Search/Search.jsx","./components/Recipes/Recipes":"components/Recipes/Recipes.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -30060,7 +30925,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56399" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59008" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

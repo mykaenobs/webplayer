@@ -1,0 +1,38 @@
+@import "../../assets/partials/theme/fonts";
+@import "../../assets/partials/theme/colors";
+@import "../../assets/partials/theme/media";
+@import "../../assets/partials/utility/functions";
+@import "../../assets/partials/utility/utilies";
+
+.search {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+    margin-bottom: 5em;
+}
+
+.form {
+    @extend .cc-s;
+    background-color: color(accents, 400);
+    border-bottom: 4px solid color(primary, 100);
+
+    &__group {
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        flex: 1;
+        padding: 1em 0;
+        border: none;
+        font-size: font(text, 100, rem);
+    }
+
+    &__button {
+        padding: 1em 1em;
+        border: none;
+        background: none;
+        svg {
+            font-size: 1.5rem;
+            color: color(primary, 100);
+        }
+    }
+}

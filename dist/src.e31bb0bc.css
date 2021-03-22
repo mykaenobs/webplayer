@@ -2,7 +2,8 @@
 * {
   box-sizing: border-box;
   list-style-type: none;
-  margin: 0; }
+  margin: 0;
+  outline: none; }
 
 body {
   margin: 0;
@@ -21,30 +22,14 @@ a {
     color: #ff0c6f; }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
-* {
-  box-sizing: border-box;
-  list-style-type: none;
-  margin: 0; }
-
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.8rem, 2vw, 0.9rem);
-  height: 100vh;
-  background-color: #fff; }
-
-ul, li {
-  padding: 0; }
-
-a {
-  color: #222;
-  text-decoration: none; }
-  a:hover {
-    color: #ff0c6f; }
-
 .cc, .nav__container {
   width: 100%;
   max-width: 1250px;
+  margin: 0 auto; }
+
+.cc-s {
+  width: 100%;
+  max-width: 1024px;
   margin: 0 auto; }
 
 .sb-ac, .nav__container {
@@ -78,8 +63,8 @@ a {
   font-weight: 400; }
   .nav__link--button {
     background-color: #ff0c6f;
-    display: inline-block;
-    padding: 0.6em 1.5em;
+    display: block;
+    padding: 0.6em .8em;
     border-radius: 5px;
     color: #ffffff;
     position: relative;
@@ -103,21 +88,22 @@ a {
 
 .nav__menu {
   display: none;
-  flex-direction: column;
-  gap: .35em; }
-  .nav__menu span {
-    background-color: #707070;
-    height: 2px;
-    border-radius: 10px;
-    width: 20px; }
+  font-size: 2em;
+  color: #222222; }
   @media screen and (max-width: 500px) {
     .nav__menu {
-      display: inline-flex; } }
+      display: inline-flex;
+      align-items: center; } }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 .cc {
   width: 100%;
   max-width: 1250px;
+  margin: 0 auto; }
+
+.cc-s {
+  width: 100%;
+  max-width: 1024px;
   margin: 0 auto; }
 
 .sb-ac {
@@ -177,6 +163,141 @@ a {
   border-radius: 25px;
   width: 10px;
   height: 20px; }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+.cc {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto; }
+
+.cc-s, .form {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto; }
+
+.sb-ac {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.search {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+  margin-bottom: 5em; }
+
+.form {
+  background-color: #ffffff;
+  border-bottom: 4px solid #ff0c6f; }
+  .form__group {
+    display: flex;
+    align-items: center; }
+  .form__input {
+    flex: 1;
+    padding: 1em 0;
+    border: none;
+    font-size: 0.875rem; }
+  .form__button {
+    padding: 1em 1em;
+    border: none;
+    background: none; }
+    .form__button svg {
+      font-size: 1.5rem;
+      color: #ff0c6f; }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+.cc {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto; }
+
+.cc-s, .recipes {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto; }
+
+.sb-ac {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+@media screen and (max-width: 1300px) {
+  .recipes__container {
+    padding: 0 2em; } }
+
+.recipes__title {
+  color: #222222;
+  margin-bottom: 2em; }
+
+.recipes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3em 2em; }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+.cc {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto; }
+
+.cc-s {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto; }
+
+.sb-ac {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.recipe figure {
+  position: relative; }
+
+.recipe__img {
+  width: 100%;
+  display: block; }
+
+.recipe__cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem .5rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center; }
+  .recipe__cap a {
+    color: #ffffff; }
+  .recipe__cap h3 {
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0.3em 0; }
+  .recipe__cap p a {
+    font-size: .8rem;
+    color: #707070;
+    font-weight: 400;
+    background-color: #ff0c6f;
+    display: block;
+    padding: 0.8em;
+    border-radius: 5px;
+    color: #ffffff;
+    position: relative;
+    z-index: 0;
+    overflow: hidden; }
+    .recipe__cap p a::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background-color: #f10c69;
+      height: 60px;
+      width: 60px;
+      z-index: -1;
+      border-radius: 50%;
+      transition: transform 0.25s ease-in-out; }
+    .recipe__cap p a:hover {
+      color: #ffffff; }
+      .recipe__cap p a:hover::after {
+        transform: scale(4.5); }
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
