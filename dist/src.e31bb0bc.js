@@ -30707,7 +30707,118 @@ var Search = function Search() {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Search.scss":"components/Search/Search.scss","@iconify/react":"../node_modules/@iconify/react/dist/icon.js","@iconify/icons-mdi-light/magnify":"../node_modules/@iconify/icons-mdi-light/magnify.js"}],"App.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Search.scss":"components/Search/Search.scss","@iconify/react":"../node_modules/@iconify/react/dist/icon.js","@iconify/icons-mdi-light/magnify":"../node_modules/@iconify/icons-mdi-light/magnify.js"}],"components/Recipes/Recipes.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Recipe/Recipe.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Recipe/Recipe.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Recipe.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Recipe = function Recipe(_ref) {
+  var img = _ref.img;
+  return /*#__PURE__*/_react.default.createElement("section", {
+    className: "recipe"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "recipe__container"
+  }, /*#__PURE__*/_react.default.createElement("figure", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: "#"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "recipe__img",
+    src: img,
+    alt: ""
+  })), /*#__PURE__*/_react.default.createElement("figcaption", {
+    className: "recipe__cap"
+  }, /*#__PURE__*/_react.default.createElement("h3", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: "#"
+  }, "Duck confit burger")), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "2879kcal"), /*#__PURE__*/_react.default.createElement("span", null, "59kg"))))));
+};
+
+var _default = Recipe;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Recipe.scss":"components/Recipe/Recipe.scss"}],"assets/imgs/thumbnails/t-1.jpg":[function(require,module,exports) {
+module.exports = "/t-1.1c843025.jpg";
+},{}],"assets/imgs/thumbnails/t-2.jpg":[function(require,module,exports) {
+module.exports = "/t-2.357d7b4d.jpg";
+},{}],"assets/imgs/thumbnails/t-3.jpg":[function(require,module,exports) {
+module.exports = "/t-3.74fe932c.jpg";
+},{}],"assets/imgs/thumbnails/t-4.jpg":[function(require,module,exports) {
+module.exports = "/t-4.da706fd8.jpg";
+},{}],"assets/imgs/thumbnails/t-5.jpg":[function(require,module,exports) {
+module.exports = "/t-5.1c205afb.jpg";
+},{}],"assets/imgs/thumbnails/t-6.jpg":[function(require,module,exports) {
+module.exports = "/t-6.3e8fbb26.jpg";
+},{}],"components/Recipes/Recipes.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Recipes.scss");
+
+var _Recipe = _interopRequireDefault(require("../Recipe/Recipe"));
+
+var _t = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-1.jpg"));
+
+var _t2 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-2.jpg"));
+
+var _t3 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-3.jpg"));
+
+var _t4 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-4.jpg"));
+
+var _t5 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-5.jpg"));
+
+var _t6 = _interopRequireDefault(require("../../assets/imgs/thumbnails/t-6.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Recipes = function Recipes() {
+  return /*#__PURE__*/_react.default.createElement("section", {
+    className: "recipes"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "recipes__container"
+  }, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "recipes__title"
+  }, "Chicken"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "recipes__grid"
+  }, /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t2.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t3.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t4.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t5.default
+  }), /*#__PURE__*/_react.default.createElement(_Recipe.default, {
+    img: _t6.default
+  }))));
+};
+
+var _default = Recipes;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Recipes.scss":"components/Recipes/Recipes.scss","../Recipe/Recipe":"components/Recipe/Recipe.jsx","../../assets/imgs/thumbnails/t-1.jpg":"assets/imgs/thumbnails/t-1.jpg","../../assets/imgs/thumbnails/t-2.jpg":"assets/imgs/thumbnails/t-2.jpg","../../assets/imgs/thumbnails/t-3.jpg":"assets/imgs/thumbnails/t-3.jpg","../../assets/imgs/thumbnails/t-4.jpg":"assets/imgs/thumbnails/t-4.jpg","../../assets/imgs/thumbnails/t-5.jpg":"assets/imgs/thumbnails/t-5.jpg","../../assets/imgs/thumbnails/t-6.jpg":"assets/imgs/thumbnails/t-6.jpg"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30722,6 +30833,8 @@ require("./App.scss");
 var _Header = _interopRequireDefault(require("./components/Header/Header"));
 
 var _Search = _interopRequireDefault(require("./components/Search/Search"));
+
+var _Recipes = _interopRequireDefault(require("./components/Recipes/Recipes"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30767,12 +30880,12 @@ var App = function App() {
     className: "main"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "main__container"
-  }, /*#__PURE__*/_react.default.createElement(_Search.default, null))));
+  }, /*#__PURE__*/_react.default.createElement(_Search.default, null), /*#__PURE__*/_react.default.createElement(_Recipes.default, null))));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./components/Header/Header":"components/Header/Header.jsx","./components/Search/Search":"components/Search/Search.jsx"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./App.scss":"App.scss","./components/Header/Header":"components/Header/Header.jsx","./components/Search/Search":"components/Search/Search.jsx","./components/Recipes/Recipes":"components/Recipes/Recipes.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -30812,7 +30925,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58766" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58802" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

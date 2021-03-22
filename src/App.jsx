@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
+import Recipes from "./components/Recipes/Recipes";
 
 const App = () => {
     const YOUR_APP_ID = "a41cc3ff";
@@ -27,7 +28,7 @@ const App = () => {
             <main id="main" className="main">
                 <div className="main__container">
                     <Search />
-                    {/* <Recipes /> */}
+                    <Recipes />
                 </div>
             </main>
         </>
