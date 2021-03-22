@@ -13,12 +13,12 @@ const Navbar = () => {
                 <ul className="nav__links">
                     <li className="nav__list">
                         <a href="#" className="nav__link">
-                            Lorem.
+                            Recipes
                         </a>
                     </li>
                     <li className="nav__list">
                         <a href="#" className="nav__link">
-                            Obcaecati?
+                            Foods
                         </a>
                     </li>
                     <li className="nav__list">

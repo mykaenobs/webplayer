@@ -30565,12 +30565,12 @@ var Navbar = function Navbar() {
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
     className: "nav__link"
-  }, "Lorem.")), /*#__PURE__*/_react.default.createElement("li", {
+  }, "Recipes")), /*#__PURE__*/_react.default.createElement("li", {
     className: "nav__list"
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
     className: "nav__link"
-  }, "Obcaecati?")), /*#__PURE__*/_react.default.createElement("li", {
+  }, "Foods")), /*#__PURE__*/_react.default.createElement("li", {
     className: "nav__list"
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "#",
